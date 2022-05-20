@@ -34,7 +34,7 @@ void bistInvorderPrint(Bit_node p){
 };
 
 /*DA COMPLETARE*/
-int bistSearch(Bit_node r, key k){
+int bistSearch(Bit_node r, int k){
 };
 void bistInsert(Bit_node *q, int n);
-int bistDelete(Bit_node *r, key k);
+int bistDelete(Bit_node *r, int k);
