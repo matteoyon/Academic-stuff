@@ -5,7 +5,7 @@ s.plotTree;
 s.scope;
 )
 
-b = Buffer.readChannel(s, "in.wav".resolveRelative, channels: 1);
+b = Buffer.readChannel(s, "/Volumes/GoogleDrive/Il mio Drive/Cloud Conservatorio/BIENNIO/Campionamento e sintesi/2/Progetto Esame/potatoHead/versione1/in.wav", channels: 1);
 
 b.play;
 b.release;
