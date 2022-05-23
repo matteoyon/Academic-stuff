@@ -153,6 +153,12 @@ ALLOCAZIONE DINAMICA
     p = q;
     ***********************************************
 
+INTERFACCE E CLIENT
+    Se vuoi creare una libreria:
+    -file .h e .c
+    -includi il file .h tra "" nel file main e nel file .c
+    -In compilazione devi compilare tutti i file .c
+    -Protezione con #ifndef OPPURE (non ufficiale ma si fa) #pragma once
 
 STRUTTURE DI DATI:
     Pila -> linkedList
