@@ -158,6 +158,14 @@ STRUTTURE DI DATI:
     Pila -> linkedList
     Coda -> bidirectional LinkedList
 
-    
+    Heap -> dato che uno heap è un albero binario completo per definizione,
+            può essere comodo rappresentare uno heap come un array: {IGNORE,1,2,3,4,5,6,7,8,9,10,11}
+            Si usa IGNORE perchè ci facilita il calcolo dei figli sinistro e destro:
+            Nodo i:
+                figlio sx := 2i
+                figlio dx := 2i+1
+                padre di i:= i/2 (divisione intera)
+
+            
 
 */
