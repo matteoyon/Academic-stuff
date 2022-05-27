@@ -25,8 +25,8 @@ void sort(int *i, int *f, int *v, int size){
 }
 
 void calculateP(int j, int *i, int *f, int *v, int *P){
-    for(int a = 1; a < j; a++){
-        if(f[a] <= i[j]) P[j] = a;
+    for(int a = 0; a < j; a++){
+        if(f[a] <= i[j-1]) P[j] = a+1;
     }
 }
 
@@ -58,7 +58,8 @@ int main(){
 
     //Calcola p(j) per ogni j e memorizzalo in Array P
     int P[j+1];
-    for (int k = 0; k <= j; k++){
+    P[0] = 0;
+    for (int k = 1; k <= j; k++){
         P[k] = 0;
         calculateP(k,i,f,v,P);
     }
@@ -93,7 +94,7 @@ int main(){
         }
     }
     
-
+    printf("\n");
     return 0;
 }
 
