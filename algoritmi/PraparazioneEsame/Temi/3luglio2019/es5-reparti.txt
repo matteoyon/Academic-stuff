@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+typedef struct reparto {
+	int nome;
+	int numeroLavoratori;
+	struct reparto *reparto1;
+	struct reparto *reparto2; 	
+   } *Reparto;
+
+
+int totaleLavoratori(Reparto primo);
+void dfs(Reparto root, int *totale);
+Reparto generaAlbero(int a[], int size, int i);
+Reparto nuovoReparto(int item);
+
+/*
+inserire il numero di reparti dell'impianto e prenmere invio
+
+inserire una serie di numeri che rappresenta la visita in ampiezza dell'albero
+quindi prima il numero di dipendenti del primo reparto
+poi il numero di dipendenti di ogni reparto successivo, quindi del secondo livello
+poi dei reparti di terzo livello...
+*/
+
+int main() {
+
+	printf("quanti reparti ci sono nell'impianto? ");
+	int n;
+	scanf("%d", &n);
+	printf("inserisci il numero di dipendenti di ogni reparto: (bfs)\n");
+	int array[n];
+	for (int i = 0; i < n; i++) {
+		scanf("%d", &array[i]);
+	}
+
+	Reparto root = generaAlbero(array, n, 0);
+
+	printf("numero di dipendenti nei reparti di collaudo: %d\n", totaleLavoratori(root));
+	
+}
+
+
+
+int totaleLavoratori(Reparto primo) {
+   	int *totaleLavoratori = malloc(sizeof(int));
+   	*totaleLavoratori = 0;
+
+	dfs(primo, totaleLavoratori);
+
+   	return *totaleLavoratori;
+} 
+
+void dfs(Reparto root, int *totale) {
+
+   	if (root != NULL) {
+   		
+   		if ((root -> reparto1 == NULL) && (root -> reparto1 == NULL)) {
+   			*totale += root -> numeroLavoratori;
+   		} else {
+   		   	dfs(root -> reparto1, totale);
+   			dfs(root -> reparto2, totale);	
+   		}
+   	}
+}
+
+
+Reparto nuovoReparto(int item) {
+    Reparto new = malloc(sizeof(Reparto));
+    new -> reparto1 = NULL;
+    new -> reparto1 = NULL;
+    new -> numeroLavoratori  = item;
+    return new;
+}
+
+Reparto generaAlbero(int a[], int size, int i) {
+    Reparto root = nuovoReparto(a[i]);
+    
+    if (2 * i + 1 >= size)
+        root -> reparto1 = NULL;
+    else
+        root -> reparto1 = generaAlbero(a, size, 2 * i + 1);
+    
+    if (2 * i + 2 >= size)
+        root -> reparto2 = NULL;
+    else
+        root -> reparto2 = generaAlbero(a, size, 2 * i + 2);
+    
+    return root;
+}

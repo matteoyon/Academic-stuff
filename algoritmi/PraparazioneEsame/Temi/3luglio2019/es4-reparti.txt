@@ -1,0 +1,54 @@
+1) e - sbagliato perche un reparto a due padri
+   d - sbagliato perchè primo reparto ha 3 figli
+   c - sbagliato perchè non tutti i prodotti parono dal primo reparto (radice comune)
+   b - sbagliato perchè in un reparto i prodotti possono arrivare da due reparti
+   a - giusto perchè c'è un primo reparto da qui partono tutti i prodotti
+       ogni reparto ha al massimo due figli
+       non ci sono reparti in cui arrivano prodotti da più di un reparto
+
+
+2) Per modellare questo problema utilizzerei un albero binario. infatti esiste un
+   primo reparto da cui partono tutti i prodotti e questo sarà la nostra radice
+   e ci permette di sapere che ci basterà un solo albero e non una foresta di alberi
+   ogni nodo dell'albero sarà un reparto e rispettando la struttura dell'azienda
+   ogni nodo avrà solo un padre e al massimo2 figli. Le foglie, ovvero i nodi
+   senza figli, saranno i reparto di collaudo dato che arrivati a questi reparti
+   termina la catena di produzione mentre tutti gli altri nodi saranno reparti di 
+   produzione. Ogni nodo avrà al massimo due puntatori ad altri nodi che rappresentano
+   i passaggi dei prodotti da reparto a reparto
+   
+   i nodi avranno il loro nome per essere individuati che è un numero intero,
+   un altro intero che rappsenta il numerod di lavoratori in quel reparto e
+   e due puntatori che possono essere null
+
+   typedef struct reparto {
+	int nome;
+	int numeroLavoratori;
+	struct reparto *reparto1;
+	struct reparto *reparto2; 	
+   } *Reparto;
+
+3) Per calcolare il numero di lavoratori del nostro impianto rappresentato con un
+   albero basterà visita tutto l'albero, con una dfs (depth first search) ad esempio,
+   e sommare in una variabile il numero di lavoratori del nodo che si sta visitando.
+
+int totaleLavoratori(Reparto primo) {
+   	int totaleLavoratori;
+
+	dfs(primo, &totaleLavoratori);
+
+   	return totaleLavoratori;
+} 
+
+   void dfs(Reparto root, int *totale) {
+   	if (root != NULL) {
+   		if ((root -> reparto1 == NULL) && (root -> reparto1 == NULL)) {
+   			   		*totale += numeroLavoratori;
+   		} else {
+   		   	dfs(root -> reparto1, totale);
+   			dfs(root -> reparto2, totale);	
+   		}
+   	}
+}   
+   
+   
