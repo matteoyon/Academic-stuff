@@ -33,30 +33,36 @@ INSERIRE QUI LA FUNZIONE MAIN E EVENTUALI ALTRE FUNZIONI AGGIUNTIVE
 
 int main() {
   Stack s = init();
-  char *c;
+  char *c, *d;
   c = malloc(13*sizeof(char));
   scanf("%s13", c);
-  while(*c != '\0'){
-    if(c){
-      if(c[1] == '/'){
-        char *d = pop(s);
-        if(strcmp(d+1, c+2) != 0){
-
-          printf("NO1");
-          return 0;
+  while(strcmp(c,"\n")){
+    printf("c is %s\n", c);
+      if(c[0] == '<'){
+        if(c[1] == '/'){
+          print_stack(s);
+          d = pop(s);
+          printf("comparing %s and %s\n", d+1, c+2);
+          if(strcmp(d+1, c+2) != 0){
+            printf("NO1");
+            return 0;
+          }
+        }else{
+          printf("pushing %s into s\n", c);
+          push(s,c);
+          print_stack(s);
         }
       }else{
-        push(s,c);
+      if(is_empty(s)){
+        printf("OK");
+      }else{
+        printf("NO2");
       }
+      return 0;
     }
+    c = malloc(13*sizeof(char));
     scanf("%s13", c);
   }
-  if(is_empty(s)){
-    printf("OK");
-  }else{
-    printf("NO2");
-  }
-  return 0;
 }
 
 
