@@ -172,6 +172,13 @@ STRUTTURE DI DATI:
                 figlio dx := 2i+1
                 padre di i:= i/2 (divisione intera)
 
-            
+NEXT CHAR come in Java:
+    puoi fare una cosa del tipo:
+        char u;
+        u = getchar();
+        ////////fai quello che devi fare con u/////////
+        ungetc(u,stdin);
+
+        
 
 */

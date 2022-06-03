@@ -33,37 +33,38 @@ INSERIRE QUI LA FUNZIONE MAIN E EVENTUALI ALTRE FUNZIONI AGGIUNTIVE
 
 int main() {
   Stack s = init();
-  char *c, *d;
-  c = malloc(13*sizeof(char));
-  scanf("%s13", c);
-  while(strcmp(c,"\n")){
-    printf("c is %s\n", c);
-      if(c[0] == '<'){
-        if(c[1] == '/'){
-          print_stack(s);
-          d = pop(s);
-          printf("comparing %s and %s\n", d+1, c+2);
-          if(strcmp(d+1, c+2) != 0){
-            printf("NO1");
-            return 0;
-          }
-        }else{
-          printf("pushing %s into s\n", c);
-          push(s,c);
-          print_stack(s);
-        }
-      }else{
-      if(is_empty(s)){
-        printf("OK");
-      }else{
-        printf("NO2");
-      }
-      return 0;
-    }
+  char *c, *d, u;
+  while((u = getchar()) != '\n'){
+    ungetc(u,stdin);
     c = malloc(13*sizeof(char));
     scanf("%s13", c);
+    printf("c is %s\n", c);
+    if(c[0] == '<'){
+      if(c[1] == '/'){
+        print_stack(s);
+        d = pop(s);
+        printf("comparing %s and %s\n", d+1, c+2);
+        if(strcmp(d+1, c+2) != 0){
+          printf("NO\n");
+          return 0;
+        }
+      }else{
+        printf("pushing %s into s\n", c);
+        push(s,c);
+        print_stack(s);
+      }
+    }
+    //scanf("%s13", c);
   }
+
+  if(is_empty(s)){
+    printf("OK\n");
+  }else{
+    printf("NO\n");
+  }
+  return 0;
 }
+
 
 
 
