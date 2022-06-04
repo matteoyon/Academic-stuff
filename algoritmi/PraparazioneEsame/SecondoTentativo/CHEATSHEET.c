@@ -96,7 +96,14 @@ ALLOCAZIONE DINAMICA
     ********ATTENZIONE**********
     MALLOC, CALLOC E REALLOC restituiscono un puntatore a NULL SE l'allocazione non ha successo:
     è NECESSARIO gestire il caso dato che il rischio è quello di usare il puntatore a NULL come se stesse
-    effettivamente puntando a memoria allocata e quindi provocare errori.
+    effettivamente puntando a memoria allocata e quindi provocare errori:
+
+    Esempio:
+    Graph g = malloc(sizeof(struct graph));
+	if(!g) {
+        	fprintf(stderr,"Errore di Allocazione\n");
+	        exit(EXIT_FAILURE);
+	}
     ****************************
 
 
