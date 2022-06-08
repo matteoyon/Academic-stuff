@@ -1,0 +1,10 @@
+1 - La struttura dati è una coda di interi. è implementata come una struct contenente il
+riferimento alla testa e alla coda di una linked list. Ogni elemento della linked list
+contiene il valore dell'intero ad essa associato e il riferimento al nodo successivo.
+
+2 - a è il riferimento del nodo in testa alla linked list mentre b è il riferimento al
+nodo in coda.
+
+3 - f1 inserisce l'intero in argomento in fondo alla coda anch'essa in argomento mentre
+f2 toglie dalla coda l'elemento in testa e ne restituisce l'intero al suo interno. Nomi
+più adatti sarebbero enququq per f1 e dequeue per f2

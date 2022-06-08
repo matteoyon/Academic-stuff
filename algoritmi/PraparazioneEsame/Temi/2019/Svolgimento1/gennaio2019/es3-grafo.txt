@@ -1,0 +1,11 @@
+1 - Il gioco può essere formalizzato attraverso un grafo pesato orientato in cui ogni nodo corrisponde ad una casella e i gli archi corrispondono agli spostamenti che si effettuano a seguito di un lancio di dadi.
+Il grafo è connesso, ma non fortemente e in particolare ogni nodo rappresentante la casella n ha un arco uscente verso i nodi dalla casella n+1 a n+6, ad eccezione di caselle che non esistono nel grafo perchè
+nel gioco rimandano direttamente ad un'altra casella perchè collegate tramite un serpente ed una scala. Inoltre, tutti i nodi che seguendo questa logica sarebbero > 30 sono rappresentati da un unico nodo che
+rappresenta lo stato di sconfitta.
+
+2 - 
+a) cammino minimo dal nodo zero al nodo 30 (considerando ogni nodo avente lo stesso peso)
+b) 
+
+3 -
+a) cammino minimo dal nodo n al nodo 30 
