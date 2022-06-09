@@ -4,8 +4,67 @@ nel gioco rimandano direttamente ad un'altra casella perchè collegate tramite u
 rappresenta lo stato di sconfitta.
 
 2 - 
-a) cammino minimo dal nodo zero al nodo 30 (considerando ogni nodo avente lo stesso peso)
+a) cammino minimo dal nodo 1 al nodo 30 (considerando ogni nodo avente lo stesso peso)
+
+Algoritmo di Dijkstra dal nodo 1 -> d[V]
+
+SOLUZIONE: d[30];
+
+
 b) 
 
+nodo N = 1;
+listaInteri lanci = vuota;
+
+WHILE N != 30{
+    for i from 1 to 6{
+        M = Nodo per arco uscente da N con peso i;
+        if M > N{
+            N = M;
+            lanci.addNode(i);
+            break;
+        }
+    }
+}
+
+printList(lanci)
+
 3 -
-a) cammino minimo dal nodo n al nodo 30 
+a) cammino minimo dal nodo n al nodo 30 (considerando ogni nodo avente lo stesso peso)
+
+Algoritmo di Dijkstra dal nodo n -> d[V]
+
+SOLUZIONE: d[30];
+
+
+b)
+nodo N = n;
+
+listaInteri lanci = vuota;
+
+WHILE N != 30{
+    for i from 1 to 6{
+        M = Nodo per arco uscente da N con peso i;
+        if M > N{
+            N = M;
+            lanci.addNode(i);
+            break;
+        }
+    }
+}
+
+
+4 -
+a)  int N = 30;
+
+    int L = (N - 1)/6
+
+    L%6 == 0 ? return L : return L + 1;
+
+
+
+b)  int N = 30;
+
+    for i from 0 to N - 1{
+        print(1);
+    }
