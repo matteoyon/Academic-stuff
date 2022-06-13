@@ -73,7 +73,21 @@ Node flist2( Node r ) {
 	if ( l -> w[0] != '\0' && l -> w[1] == '\0' )
 		return r;
 	Node n = malloc( sizeof(struct node) );
-	n -> w = ( l -> w ) + 1;
+
+	int rSize = 2, vSize = 0;
+	n -> w = malloc(rSize*sizeof(char));
+
+	for(char *c = (l -> w); *(c+1) != '\0'; c++){
+		if(vSize >= rSize){
+			rSize *= 2;
+			n -> w = realloc(n -> w, rSize*sizeof(char));
+		}
+		n -> w[vSize] = *c;
+		vSize++;
+	}
+
+	n->w[vSize] = '\0';
+
 	l -> next = n;
 	return flist2( r );		
 }
@@ -108,7 +122,7 @@ Node build2( char *w ) {
 int main(){
 	
 	char word[20] = "";
-	printf("%s\n", fstring(word,build2("hello")));
+	printf("%s\n", fstring_iter(word,build2("hello")));
 
 	return 0;
 }
