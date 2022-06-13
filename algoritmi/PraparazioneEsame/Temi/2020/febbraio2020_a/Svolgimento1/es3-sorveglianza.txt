@@ -1,0 +1,35 @@
+ANDATE TUTTI A FANCULO ERA UN ALBERO. CAZZO.
+
+
+
+1)
+Deposito = GRAFO(V,E) non orientato connesso con V = insieme delle stanze ed E = insieme dei corridoi.
+
+Ogni Stanza in V ha i campi:
+    -int ID;
+    -int valore
+    -boolean telecamera;
+
+un corridoio in E è un arco tra due stanze distinte.
+un corridoio si dice "buio" se è un arco tra due stanze aventi telecamera = false.
+
+Impianto = Deposito tale che per ogni stanza con telecamera false esiste una Stanza
+con telecamera true a distanza 1 (attigua).
+
+
+2)
+Algoritmo isImpianto(Deposito(V,E)) -> boolean
+    for stanza v in V:
+        if(v -> telecamera = FALSE):
+            boolean sorvegliata = TRUE
+            for arco (v,w):
+                if(w -> telecamera = TRUE)
+                    sorvegliata = TRUE
+                    break
+            if sorvegliata = FALSE:
+                return FALSE
+    return FALSE
+
+
+3)
+
