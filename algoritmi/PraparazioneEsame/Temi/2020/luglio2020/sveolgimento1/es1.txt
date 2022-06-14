@@ -1,0 +1,59 @@
+1)pow1 è un algoritmo ricorsivo che, dopo aver gestito  i casi base
+dell'elevazione a potenza a 0 e a 1, sfrutta la proprietà delle potenze per cui
+la potenza di potenza è la potenza avente stessa base per il prodotto dei due
+esponenti. Quindi si può richiamare lo stesso algoritmo con l'esponente dimezzato
+e la base elevata alla seconda gestendo opportunamente casi di esponente dispari.
+
+pow2 invece è un algoritmo iterativo che sfrutta la definizione base di elevamento
+a potenza per esponenti interi per cui la base è moltiplicata per se stessa un numero
+di volte pari al valore dell'esponente.
+
+2)In pow1 la prima moltiplicazione viene effettuata per calcolare l'argomento x della
+prima chiamata ricorsiva (se questa si rivela necessaria). In particolare questa si
+effettua tra l'argomento x e se stesso ed avviene a riga 7 se l'argomento n è dispari o a riga 8 se questi è pari.
+
+in pow2 se l'argomento n è > 0 la prima moltiplicazione avviene in riga 5 tra l'argomento x e
+la variabile res che in quel momento ha valore 1.
+
+3)l'ultima moltiplicazione in pow2 corrisponde a quanto scritto sopra per la prima moltiplicazione
+(con la differenza che res non vale più 1), mentre in pow1 dipende dall'argomento n: se pari, come per la prima
+moltiplicazione, l'ultima sarà quella per calcolare l'argomento x della chiamata ricorsiva a riga 8 ed è pari ad
+x per se stesso, mentre se n è dispari l'ultima moltiplicazione è quella tra x e il risultato della chiamata ricorsiva a riga 7.
+
+4)
+In pow 1 il numero di moltiplicazioni da effettuare è comparabile al logaritmo in base 2 di n (è esattamente log2(n) se n è potenza
+di 2 ed è il lower bound) e vengono effettuate nelle righe 7 e 8. In pow 2 vengono eseguite n moltiplicazioni in totale tutte a riga 5.
+
+5)
+pow1(2,9)
+|___pow(4,4)*2
+    |___pow(16,2)
+        |___pow(256,1)
+            |___
+             ___256
+            |
+         ___256
+        |
+     ___256*2
+    |
+ ___512
+| 
+512 
+
+pow2(2,9)
+|___res = 1;
+|___res = 2;
+|___res = 4;
+|___res = 8;
+|___res = 16;
+|___res = 32;
+|___res = 64;
+|___res = 128;
+|___res = 256;
+|___res = 512;
+|
+512
+
+6)considerando tutte le operazioni di confronto, di assegnazione e
+aritmetiche avente tempo costante, pow1 ha tempo OMEGA(log(n)) mentre 
+pow2 ha tempo OMEGA(n)
