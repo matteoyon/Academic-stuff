@@ -1,0 +1,29 @@
+Matteo Yon 954748
+
+1)
+
+typedef struct bit_node{
+    int y;
+    int item;
+    struct bit_node *l;
+    struct bit_node *r;
+} *Bit_node;
+
+2)
+    a) la funzione f modifica l'albero andando per ogni nodo 
+    a sovrascrivere il campo y di ogni nodo sommandovi la
+    chiave del nodo stesso al valore di chiave dei suoi antenati.
+
+    b) per questa chiamata lo stack raggiunge al massimo il livello
+    dell'albero (nel caso dell'esempio 4, ovvero il livello di 3 e 7)
+
+    c) vengono effettuate 2 chiamate per ogni nodo presente nell'albero
+    (in questo caso 8*2 = 16)
+
+    d) si veda il punto a.
+
+    e) "somma"
+
+    f) si veda il punto b.
+
+    g) si veda il punto c.
