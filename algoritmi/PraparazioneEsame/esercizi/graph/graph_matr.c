@@ -24,15 +24,16 @@ Graph graph_new ( int n ){
 /* distrugge il grafo g */
 void graph_destroy ( Graph g ){
     for(int i = 0; i < g->n; i++){
+        /*
         for(int j = 0; j < g->n; j++){
-            free(g->A[i][j]);
+            free(&(g->A[i][j]));
         }
+        */
         free(g->A[i]);
     }
     free(g->A);
-    free(g->m);
-    free(g->n);
     free(g);
+    g = NULL;
 };
 
 /* inserisce l’arco (v,w) nel grafo g */
@@ -40,7 +41,7 @@ void graph_edgeinsert ( Graph g , int v , int w ){
     if(g->A[v][w] == 0){
         g->A[v][w] = 1;
         g->m++;
-    }else if(g-A[v][w] == 1){
+    }else if(g -> A[v][w] == 1){
         printf("\nArco (%d,%d) già presente nel grafo", v,w);
     }
 };
@@ -48,3 +49,23 @@ void graph_edgeinsert ( Graph g , int v , int w ){
 Graph graph_read ( void );
 /* stampa su standard output un grafo (specificare il formato!!) */
 void graph_print ( Graph g );
+
+int main(){
+    
+    Graph g = graph_new(10);
+    graph_edgeinsert(g,0,2);
+    graph_edgeinsert(g,8,4);
+    graph_edgeinsert(g,2,9);
+    graph_edgeinsert(g,5,4);
+
+    for(int i = 0; i < g -> n; i++){
+        for(int j = 0; j < g -> n; j++){
+            printf("[%d] ", g->A[i][j]);
+        }
+        printf("\n");
+    }
+
+    graph_destroy(g);
+
+    return 0;
+}
